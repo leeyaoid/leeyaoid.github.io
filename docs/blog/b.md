@@ -1,0 +1,1 @@
+可能看起比较复杂，总结一下就是：我想写一篇文章在docs/blog下写一篇名为Wcowin最帅的文章，首先在docs/blog下新建一个xxx.md文件，里面写写东西，再去mkdocs.yml里找到nav，这样写：

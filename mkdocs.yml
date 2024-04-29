@@ -1,4 +1,54 @@
 site_name: 新知
 site_url: https://leeyaoid.github.io
+site_author: leeyao
 theme:
   name: material
+
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  language: zh
+
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.indexes 
+    - navigation.top
+
+nav: 
+  - 博客:
+    - Wcowin最帅: blog/a.md  #.md文件的相对路径
+    - 第二篇: blog/b.md
+  - Zotero:
+    - zotero: zotero/aa.md
+    - zotero2: zotero/bb.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/leeyaoid
+    - icon: fontawesome/brands/github
+      link: https://github.com/leeyaoid
+
+copyright: Copyright &copy; 2016 - 2024 Yao Lee 
