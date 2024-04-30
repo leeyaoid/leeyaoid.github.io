@@ -40,6 +40,7 @@ nav:
   - 博客:
     - Wcowin最帅: blog/a.md  #.md文件的相对路径
     - 第二篇: blog/b.md
+    - github教程: blog/GitHub教程.md
     - b:
       - teree: blog/b/cc.md 
   - Zotero:
