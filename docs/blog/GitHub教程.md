@@ -1,0 +1,87 @@
+- 2. 使用github
+	- 2.1 目的
+	- 2.2 基本概念
+		- re 仓库
+		- star 收藏
+		- fork 拉分支
+		- pull request 发起请求
+		- watch 关注
+		- issue 事务卡片
+		- github主页
+		- 仓库主页
+		- 个人主页
+	- 2.3 注册github账号
+	- 2.4 新建仓库
+	- 2.5 仓库管理
+		- 新建文件
+		- 编辑文件
+		- 删除文件
+		- 搜索仓库文件
+	- 2.6 github issues
+- 3. git
+	- 3.1 安装
+	- 3.1 工作流程
+		- git 工作区域
+			- git仓库git repository
+			- 暂存区
+			- 工作区working directory
+	- 3.2 初始化几仓库创建喝管理
+		- 基本信息
+			- 设置用户名
+				- `git config --global user.name 'leeyao93'`
+			- 设置邮箱
+				- `git config --global user.email 'leeyao93@126.com`
+			- 利用ssh完成git与github绑定
+				- 生成ssh key
+					- `ssh-keygen -t rsa`
+				- 将公钥加入到github中
+				- 验证
+					- `ssh -T git@github.com`
+		- 初始化仓库
+			- `git init`
+		- 1. 向仓库添加/修改/删除文件
+		- 2.1 将文件提交到暂存区
+			- `git add <filename>`
+		- 2.2 删除文件
+			- `git rm <filename>`
+		- 3. 向仓库添加文件
+			- `git commit -m '描述'`
+	- 3.2 git管理远程仓库
+		- 修改文件
+		- 查看状态
+			- `git status`
+		- 查看日志
+			- `git log`
+		- 查看分支
+			- `git branch`
+		- 新建分支
+			- `git branch <a>`
+		- 切换分支
+			- `git checkout <a>`
+		- 合并分支
+			- 切换到主分支
+			- `git merge <a>`
+		- 删除分支
+			- `git branch -d <a>`
+			- `git branch -D <a>`
+		- 为分支添加标签
+			- `git tag <V1.0>`
+		- 将本地文件推送到仓库
+			- `git push`
+- 提交代码
+	- 情形一：克隆远程仓库
+		- 克隆远程仓库
+			- `git clone <仓库地址> `
+		- 修改文件并提交
+		- push到远程仓库
+			- `git push origin master`
+	- 情形二：本地已有git仓库
+		- 初始化仓库
+		- 关联远程仓库
+			- `git remote add origin https://github.com/guobinhit/springmvc-tutorial.git`
+		- 同步远程仓库和本地仓库
+			- `git pull origin master`
+		- 修改文件并提交
+		- push到远程仓库
+			- `git push origin master`
+			-
