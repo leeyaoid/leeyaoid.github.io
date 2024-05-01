@@ -1,0 +1,1444 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="leeyao">
+      
+      
+        <link rel="canonical" href="https://leeyaoid.github.io/%E6%8A%80%E6%9C%AF/%E4%BB%8E%E9%9B%B6%E6%9E%84%E5%BB%BAGitHub%20Pages%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/">
+      
+      
+        <link rel="prev" href="../GitHub%E6%95%99%E7%A8%8B/">
+      
+      
+        <link rel="next" href="../DeepLX%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E7%AC%AC%E4%B8%89%E6%96%B9%20DeepL%E5%85%8D%E8%B4%B9API/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
+    
+    
+      
+        <title>从零构建GitHub Pages静态网站 - 新知</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#github-pages" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="新知" class="md-header__button md-logo" aria-label="新知" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            新知
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              从零构建GitHub Pages静态网站
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../GitHub/" class="md-tabs__link">
+          
+  
+    
+  
+  技术
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/%E6%9C%9F%E5%88%8A%E6%8A%95%E7%A8%BF/%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E5%88%86%E7%B1%BB/" class="md-tabs__link">
+          
+  
+    
+  
+  学术研究
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%95%99%E8%82%B2%E5%AD%A6/%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%AD/%E4%B8%80%E5%9B%BE%E7%9C%8B%E6%87%82%E3%80%8A%E5%8C%97%E4%BA%AC%E6%95%99%E8%82%B2%E4%BF%A1%E6%81%AF%E5%8C%96%E2%80%9C%E5%8D%81%E5%9B%9B%E4%BA%94%E2%80%9D%E8%A7%84%E5%88%92%E3%80%8B/" class="md-tabs__link">
+          
+  
+    
+  
+  教育学
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="新知" class="md-nav__button md-logo" aria-label="新知" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    新知
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GitHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GitHub%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    从零构建GitHub Pages静态网站
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DeepLX%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E7%AC%AC%E4%B8%89%E6%96%B9%20DeepL%E5%85%8D%E8%B4%B9API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DeepLX——一个第三方 DeepL免费API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A2%E9%98%85DeepL%20Pro%E5%8F%8A%E7%94%B3%E8%AF%B7DeepL%20API%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    订阅DeepL Pro及申请DeepL API教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    学术研究
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            学术研究
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    期刊投稿
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            期刊投稿
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/%E6%9C%9F%E5%88%8A%E6%8A%95%E7%A8%BF/%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学术期刊分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Zotero
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Zotero
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快速开始
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    基础使用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            基础使用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%B7%BB%E5%8A%A0%E6%9D%A1%E7%9B%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    添加条目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E7%BC%96%E8%BE%91%E6%9D%A1%E7%9B%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编辑条目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E6%B7%BB%E5%8A%A0%E9%99%84%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    添加附件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../学术研究/zotero/基础使用/组织、管理你的文献库.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    组织、管理你的文献库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/%E9%98%85%E8%AF%BB%E6%96%87%E7%8C%AE%E3%80%81%E6%B7%BB%E5%8A%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    阅读文献、添加笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AD%A6%E6%9C%AF%E7%A0%94%E7%A9%B6/zotero/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/Feed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../学术研究/zotero/基础使用/从其他软件导入条目.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    从其他软件导入条目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    教育学
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            教育学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    智慧校园
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            智慧校园
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%82%B2%E5%AD%A6/%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%AD/%E4%B8%80%E5%9B%BE%E7%9C%8B%E6%87%82%E3%80%8A%E5%8C%97%E4%BA%AC%E6%95%99%E8%82%B2%E4%BF%A1%E6%81%AF%E5%8C%96%E2%80%9C%E5%8D%81%E5%9B%9B%E4%BA%94%E2%80%9D%E8%A7%84%E5%88%92%E3%80%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一图看懂《北京教育信息化“十四五”规划》
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%99%E8%82%B2%E5%AD%A6/%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%AD/%E5%8C%97%E4%BA%AC%E6%95%99%E8%82%B2%E4%BF%A1%E6%81%AF%E5%8C%96%E2%80%9C%E5%8D%81%E5%9B%9B%E4%BA%94%E2%80%9D%E8%A7%84%E5%88%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    北京教育信息化“十四五”规划
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="github-pages">从零构建GitHub Pages静态网站</h1>
+<h1 id="1-github-pages">1. Github Pages为何物？</h1>
+<blockquote>
+<p>官网: https://pages.github.com/</p>
+</blockquote>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/dkhLN5lE2qBFozR.png" /></p>
+<p>GitHub Pages 是 <code>GitHub</code> 提供的一个免费的静态网站托管服务，它允许 <code>GitHub</code> 用户创建和托管自己的静态网站，这些网站可以通过特定的 <code>GitHub</code> 仓库进行管理和托管。</p>
+<p><strong><code>GitHub Pages</code> 的主要特点包括</strong>：</p>
+<ul>
+<li>
+<p><strong>免费托管</strong>： <code>GitHub Pages</code>提供免费的静态网站托管服务，允许用户将自己的网站内容托管在 <code>GitHub</code> 上，用户不需要支付额外的托管费用；</p>
+</li>
+<li>
+<p><strong>使用简</strong><strong>单</strong>：创建和管理 <code>GitHub Pages</code> 静态网站相对简单，特别是对于熟悉 <code>GitHub</code> 的用户来说，用户只需在自己的 <code>GitHub</code> 帐户中创建一个特定名称的仓库，将网站文件上传到该仓库即可；</p>
+</li>
+<li>
+<p><strong>自定义域名</strong>：用户可以选择使用自定义域名来访问他们的 <code>GitHub Pages</code> 网站，这使得它们更适合个人网站、博客和项目页面；</p>
+</li>
+<li>
+<p><strong>支持多种静态网站生成工具</strong>： <code>GitHub Pages</code> 支持多种静态网站生成工具，如 <code>Jekyll</code>、<code>Hugo</code>、<code>Gatsby</code> 等，以及纯<code>HTML</code>、<code>CSS</code> 和 <code>JavaScript</code> 等前端技术，这使得用户能够根据自己的需求选择适合他们的工具；</p>
+</li>
+<li>
+<p><strong>自动构建</strong>：GitHub Pages 可以自动构建用户上传的网站内容，无需用户手动生成或编译网页，这使得发布网站变得更加简单。</p>
+</li>
+</ul>
+<p>对于开发人员和技术爱好者来说，GitHub Pages 是一个很好的选择，用于托管个人网站、博客、文档、项目页面等静态内容，它提供了一个方便的方式来分享和展示自己的作品。</p>
+<h1 id="2-github-pages">2. 快速搭建第一个Github Pages网站</h1>
+<p>在搭建前，默认已经注册成功了Github用户，现在开始根据官网教程一步一步的搭建。</p>
+<p>GithubPages的站点类型有几种：</p>
+<ul>
+<li><strong>个人或组织站点（User or Organization sites</strong><strong>）</strong>：对于个人或组织站点，每个<code>GitHub</code>用户或组织只能有一个站点，它通常使用<code>username.github.io</code>或<code>organizationname.github.io</code>的格式，这是<code>GitHub Pages</code>的默认站点，通常用于个人网站、博客等。</li>
+<li><strong>项目站点（Project sites）</strong>：对于项目站点，每个<code>GitHub</code>仓库可以有一个关联的<code>GitHub Pages</code>站点，这意味着对于每个项目，您可以创建一个独立的<code>GitHub Pages</code>站点，无需限制。</li>
+</ul>
+<p>本文讲解下以上两种建站的方式。</p>
+<hr />
+<h2 id="21">2.1 搭建个人（组织）类型网站</h2>
+<h3 id="step1"><strong>Step1：新建一个项目</strong></h3>
+<p>登录Github：https://github.com/，在顶部菜单栏点击“+”，然后“New repository”新建仓库，输入项目的相关信息，然后“Create repository”创建仓库：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/Z9M6WoUuOtznHhB.png" /></p>
+<h3 id="step2"><strong>Step2：创建一个界面文件</strong></h3>
+<p>首先创建一个文件：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/YAuOZfUNj42VtWI.png" /></p>
+<p>输入文件内容，点击提交：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/TL1UPhNoRF5mZug.png" /></p>
+<p>输入提交信息，点击提交
+<img alt="图片" src="https://s2.loli.net/2024/05/01/1pGRXAwg5YEbOqP.png" /></p>
+<h3 id="step3"><strong>Step3：访问</strong></h3>
+<p>大概等待几十秒，访问：https://用户名.github.io/，即可部署第一个属于自己的静态网站了，可以看到部署成功了：</p>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/sw8SgD4hkyZ9KAu.png" /></p>
+<hr />
+<h2 id="22">2.2 搭建项目类型网站</h2>
+<h3 id="step1_1">Step1：新建一个项目</h3>
+<p>登录Github：https://github.com/，在顶部菜单栏点击“+”，然后“New repository”新建仓库，输入项目的相关信息，然后“Create repository”创建仓库：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/ENkeOID5i1gQnXc.png" /></p>
+<h3 id="step2_1"><strong>Step2：创建一个界面文件</strong></h3>
+<p>同样是创建一个文件：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/mKj5kBVztZo28ne.png" />
+同样写入内容：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/flgFtoQqPGN8Bj3.png" />
+然后输入提交信息：
+<img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/y2S9bsiaVEGpdjkYxNiaarlicb3PnyhkyAVYTadMZhGwvopdErxk8ibguOTGFTFWrmUKkiacHY4Qq0f9ZVsHAywBQXA/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" /></p>
+<h3 id="step3github-pages"><strong>Step3：设置Github Pages</strong></h3>
+<p>点击Settings：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/Ac7QU1DPRZVOxEw.png" />
+设置Github Pages：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/7CTAbr81hLyXJVH.png" /></p>
+<h3 id="step4"><strong>Step4：保存并访问</strong></h3>
+<p>点击上图的保存，然后不断刷新保存之后的页面，直至出现GtihubPages的地址：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/75HUQILnK1VBszq.png" />
+点击跳转之后，可以看到已经为该项目创建了静态网站了：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/SgozcduGVyfUQvm.png" /></p>
+<h1 id="3">3、静态网站生成工具</h1>
+<p>我们需要的页面肯定不是只有一行文本的，希望其更加的丰富，其实GitHub Pages支持多种静态网站生成工具。</p>
+<p>以下是一些GitHub Pages支持的主要静态网站生成工具：</p>
+<ul>
+<li><strong>Jekyll</strong>（https://jekyllrb.com）：Jekyll是GitHub Pages的默认静态网站生成工具，它使用Markdown文件和Liquid模板引擎来创建静态网站，Jekyll对于博客和文档站点非常流行。</li>
+<li><strong>Hugo</strong>（https://gohugo.io/）：Hugo是另一个受欢迎的静态网站生成工具，它非常快速且易于使用，它使用Go语言编写，支持多种主题和内容组织方式。</li>
+<li><strong>Gatsby</strong>（https://www.gatsbyjs.com/）：Gatsby是基于React的静态网站生成工具，它可以构建高性能、现代化的网站，Gatsby适用于博客、电子商务、应用程序文档等。</li>
+<li><strong>VuePress</strong>（https://vuepress.vuejs.org/）：VuePress是Vue.js驱动的静态网站生成工具，专注于文档站点，它支持Markdown文件和Vue组件。</li>
+<li><strong>Hexo</strong>（https://hexo.io/）：Hexo是一个快速、简单的博客框架，使用Markdown文件来生成静态博客，它是Node.js应用程序。</li>
+<li><strong>Pelican</strong>（https://blog.getpelican.com/）：Pelican是使用Python编写的静态网站生成器，适用于博客和文档。</li>
+<li><strong>Middleman</strong>（https://middlemanapp.com/）：Middleman是Ruby编写的静态网站生成工具，支持多种模板和数据源，适用于各种项目。</li>
+<li><strong>Sphinx</strong>（https://www.sphinx-doc.org/）：Sphinx是一个Python文档生成工具，通常用于技术文档和文档站点。</li>
+<li><strong>MkDocs</strong>（https://www.mkdocs.org）：MkDocs是Python编写的文档生成工具，使用Markdown文件创建文档站点。</li>
+</ul>
+<p>Jekyll 是 GitHub Pages的默认生成工具，拥有强大的社区支持，适用于博客和文档站点，接下来，我们看看如何在Mac下使用。</p>
+<p><strong>3.1 *<em>****Mac下安装Jekyll*****</em></strong></p>
+<p>要在 <code>mac</code>上安装 <code>Jekyll</code>，需要确保系统已安装 <code>Ruby</code>，通常<code>mac</code>预装了<code>Ruby</code>，我们不要使用系统的<code>ruby</code>，否则会有冲突，以下是安装 <code>Jekyll</code> 的步骤以及注释：</p>
+<pre><code># homebrew安装ruby
+brew install ruby
+
+# 通过以下命令，可以查看ruby的安装路径
+brew info ruby
+
+# 安装完成以后，修改.bash_profile文件,path路径加多/opt/homebrew/opt/ruby/bin，例如：export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+vi ~/.bash_profile
+source ~/.bash_profile
+
+# 验证ruby 版本，如果打印最新的版本，如：ruby 3.x.x表示安装最新的了
+ruby -v
+
+# 安装Jekyll
+gem install --user-install bundler jekyll
+
+# 安装成功之后，调整gem的运行环境(gem的bin目录一般在~/.gem/ruby/ruby版本/bin目录),export PATH路径增加“$HOME/.gem/ruby/ruby版本/bin”
+vi ~/.bash_profile
+source ~/.bash_profile
+
+# 验证jekyll安装是否成功
+jekyll -v
+</code></pre>
+<p>可以看到，ruby和jekyll都安装成功了。
+<img alt="图片" src="https://s2.loli.net/2024/05/01/wMLWINtBgO7S8l4.png" />
+这里附上博主<code>.bash_profile</code>的配置，大家可以参考下，最终以安装的版本为主。</p>
+<pre><code>export PATH=/opt/homebrew/opt/ruby/bin:$HOME/.gem/ruby/3.2.0/bin:$PATH
+</code></pre>
+<hr />
+<p><strong>3.2 *<em>Jekyll的简单使用*</em></strong></p>
+<p>首先，新建一个jekyll项目：</p>
+<pre><code>jekyll new test-site
+</code></pre>
+<p>以下是执行的过程：</p>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/ke39xbfwsqS4dLT.png" />
+可以看到，在对应的目录下生成了相应的项目文件：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/9lkWGTepuobVDm2.png" />
+进入对应项目目录，然后执行：</p>
+<pre><code>cd test-sitebundle exec jekyll serve
+</code></pre>
+<p>可以看到，项目已经启动：<img alt="图片" src="https://s2.loli.net/2024/05/01/SzXO3ZIRvcLMJgG.png" />根据控制台打印的日志，可以访问对应的地址即能在本地预览：</p>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/c6YAsfB3VoSvnuT.png" /></p>
+<hr />
+<p><strong>3.3 *<em>**Jekyll的配置**</em>*</strong></p>
+<p>我们可以看到，在<code>Jekyll</code>生成项目的目录下，有一个比较重要的文件（<code>_config.yaml</code>），如下图所示：</p>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/S4gP6kxCOcUbpf7.png" />
+这个<code>config</code>文件用于指定 <code>Jekyll</code>站点的各种设置和选项，包含了许多可配置的选项，用于自定义网站的行为和外观，生成的文件内容如下，我加了注释：</p>
+<pre><code># Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# 指定网站的标题
+title: Your awesome title
+# 指定联系人邮箱地址
+email: your-email@example.com
+# 网站的简要描述
+description: &gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+# 站点的子目录，如果你的网站托管在子目录下，需要指定  
+baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+# 网站的基本 URL 地址
+url: &quot;&quot; # the base hostname &amp; protocol for your site, e.g. http://example.com
+# 推特的用户名
+twitter_username: jekyllrb
+# github的用户名
+github_username:  jekyll
+
+# 指定要使用的 Jekyll 主题，如果不使用主题，则为空
+theme: minima
+# 列出要在站点构建过程中使用的插件
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal &quot;default list&quot;.
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+</code></pre>
+<p>详细的参数，可以参考：https://jekyllrb.com/docs/configuration/</p>
+<h1 id="4">4、静态网站模板</h1>
+<p>那么是否漂亮的模板，直接就可以拿来使用呢？</p>
+<p>可以从如下网址获取模板：</p>
+<ul>
+<li>https://github.com/topics/jekyll-theme</li>
+<li>https://jamstackthemes.dev/ssg/jekyll/</li>
+<li>http://jekyllthemes.org/</li>
+<li>https://jekyllthemes.io/</li>
+<li>https://jekyll-themes.com/</li>
+</ul>
+<p><strong>4.1 本地调试模板</strong></p>
+<p>如何发布到Github呢？比如我找到了我喜欢的这个模板：http://jekyllthemes.org/themes/not-pure-poole/，我们把它下载下来：</p>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/GiB9hD2n5pcsgoX.png" />
+解压后，发现跟我们使用Jekyll生成的内容格式一样：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/t3v8gBZ1SqTD45w.png" />
+只要修改里面的内容，然后使用Jekyll命令在本地预览：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/bhAnXtOvTijDGql.png" />
+发现缺少了不少的包，根据提示，执行<code>bundle install</code>:
+<img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/y2S9bsiaVEGpdjkYxNiaarlicb3PnyhkyAVNcBxSH0YoHvCB898zh8ZPU6ZrvTWt9CnTlDmLIl8Soll2aEDJviaibzA/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" />
+接着又报错了，错误信息表明正在使用 Ruby 3.x 版本，但 listen gem 要求的 Ruby 版本应该是大于等于 2.2.7 且小于 2.3 的版本，可以在项目的 <strong>Gemfile</strong> 中指定新版本的 listen gem，然后运行 bundle update listen 来安装新版本。</p>
+<pre><code># 项目中的Gemfile指定listen gem版本（然后运行bundle update listen）
+gem 'listen', '&gt;= 3.2.1'
+
+#顺便指定liquid版本，后续也会报错误的(然后运行 bundle update liquid)
+gem 'liquid', '&gt;= 4.0.3'
+
+#这个也会缺失
+gem 'webrick'
+</code></pre>
+<p><img alt="图片" src="https://s2.loli.net/2024/05/01/fn5JosPLDM1gSBa.png" /></p>
+<p>再次执行<code>bundle exec jekyll serve</code>:
+<img alt="图片" src="https://s2.loli.net/2024/05/01/QHbwIBnjlfKaVOD.png" /></p>
+<p>可以看到已经在本地部署成功，访问地址：http://127.0.0.1:4000
+<img alt="图片" src="https://s2.loli.net/2024/05/01/CdDSIaimKtLFxjn.png" /></p>
+<p>可以看到，已经在本地预览成功了，接下来，如何发布到Github Pages呢？</p>
+<p><strong>4.2 发布模板</strong></p>
+<p>首先，我们需要先安装git客户端以及配置github账户，然后提交到github。此处就不再详细演示如何clone代码，如何commit和push内容到github了，对git有兴趣的同学可以参考我写过的git专栏：https://blog.csdn.net/qq_20042935/category_10179735.html。</p>
+<p>最终资源提交到了github的仓库：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/DbXnRGsSgimV9MI.png" />
+大概等一段时间，直接访问自己项目的github.io地址（https://ylw-github.github.io/english-corner/），即可看到部署成功了：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/qOKopukxv2TMcC6.png" />
+部署的进度可以在Actions里看到：
+<img alt="图片" src="https://s2.loli.net/2024/05/01/EVhAFQjeZwu5KGo.png" />
+<img alt="图片" src="https://s2.loli.net/2024/05/01/4LTErUwYKv3ZXGH.png" /></p>
+<blockquote>
+<p>文末Tips：安装Jekyll可能需要科学上网。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2024 Yao Lee
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/leeyaoid" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/leeyaoid" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      
+    
+  </body>
+</html>
