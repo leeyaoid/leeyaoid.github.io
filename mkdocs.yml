@@ -41,7 +41,12 @@ nav:
   - 技术:
     - Github: 技术/GitHub.md
     - Github教程: 技术/GitHub教程.md
+    - 从零构建GitHub Pages静态网站: 技术/从零构建GitHub Pages静态网站.md
+    - DeepLX——一个第三方 DeepL免费API: 技术/DeepLX——一个第三方 DeepL免费API.md
+    - 订阅DeepL Pro及申请DeepL API教程: 技术/订阅DeepL Pro及申请DeepL API教程.md
   - 学术研究:
+    - 期刊投稿:
+      - 学术期刊分类: 学术研究/期刊投稿/学术期刊分类.md
     - Zotero:
       - 安装: 学术研究/zotero/安装.md
       - 快速开始: 学术研究/zotero/快速开始.md
